@@ -26,6 +26,9 @@ jobs:
       - name: Build app with py2app
         run: ./venv/bin/python setup.py py2app
 
+      - name: Trim unused Qt frameworks and plugins
+        run: bash scripts/trim_app.sh
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
